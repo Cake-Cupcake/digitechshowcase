@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaray & Max - Separate 360° Showcase</title>
+    
+    <!-- Loads the 3D viewer component securely from Google's CDN -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+    <style>
+        /* Reset and Global Configuration */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0e12;
+            color: #e2e8f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            background-color: rgba(13, 14, 18, 0.95);
+            border-bottom: 1px solid #1e222b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: #38bdf8;
+        }
+
+        .tag {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #1e222b;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Intro Description Section */
+        .intro-section {
+            text-align: center;
+            padding: 4rem 2rem 2rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro-section h1 {
+            font-size: 2.8rem;
+            color: #f8fafc;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .intro-section p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* Dual Presentation Column Layout */
+        .split-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 2rem 4rem 6rem 4rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Asset Panel Wrapper */
+        .asset-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .asset-meta h2 {
+            font-size: 1.8rem;
+            color: #f8fafc;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .asset-meta h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: #38bdf8;
+            border-radius: 4px;
+        }
+
+        /* 3D Immersive Viewer Studio Area */
+        .viewer-studio {
+            width: 100%;
+            height: 550px;
+            background: radial-gradient(circle, #20242e 0%, #0a0b0e 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #1f242e;
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            --poster-color: transparent;
+        }
+
+        /* Custom Interaction Overlay Labels */
+        .studio-overlay-label {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 1.2rem;
+            background: rgba(13, 14, 18, 0.75);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border: 1px solid #222733;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            color: #475569;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e222b;
+            background-color: #0d0e12;
+        }
+
+        @media (max-width: 1024px) {
+            .split-showcase { grid-template-columns: 1fr; padding: 1rem 1.5rem 4rem 1.5rem; }
+            .viewer-studio { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header>
+        <div class="logo">YARAY + MAX</div>
+        <div class="tag">Y10 DIGITAL TECHNOLOGY 2026</div>
+    </header>
+
+    <!-- Context Heading -->
+    <section class="intro-section">
+        <h1>3D Component Breakdown</h1>
+        <p>Left-click and drag to rotate each module 360° independently. Scroll up or down to test high-fidelity zoom levels.</p>
+    </section>
+
+    <!-- Presentation Grid Layout -->
+    <main class="split-showcase">
+        
+        <!-- Column 1: Cake Model Stage -->
+        <article class="asset-card">
+            <div class="asset-meta">
+                <h2>The Cake Model</h2>
+                <p>DigitechcakeYarayHao.glb</p>
+            </div>
+            <div class="viewer-studio">
+                <!-- Pointing precisely to your folder file name string -->
+                <model-viewer src="DigitechcakeYarayHao.glb" 
+                              alt="Immersive 360 degree Cake showcase" 
+                              auto-rotate 
+                              camera-controls 
+                              shadow-intensity="1.8"
+                              shadow-softness="0.3"
+                              exposure="1.1"
+                              environment-image="neutral">
+                </model-viewer>
+                <div class="studio-overlay-label">🔄 360° View Enabled • Zoom Active</div>
+            </div>
+        </article>
+
+        <!-- Column 2: Cupcake Model Stage -->
+        <article class="asset-card">
+            <div class="asset-meta">
+                <h2>The Cupcake Model</h2>
+                <p>DigitechCupcakeMaxSong.glb</p>
+            </div>
+            <div class="viewer-studio">
+                <!-- Pointing precisely to your folder file name string -->
+                <model-viewer src="DigitechCupcakeMaxSong.glb" 
+                              alt="Immersive 360 degree Cupcake showcase" 
+                              auto-rotate 
+                              camera-controls 
+                              shadow-intensity="1.8"
+                              shadow-softness="0.3"
+                              exposure="1.1"
+                              environment-image="neutral">
+                </model-viewer>
+                <div class="studio-overlay-label">🔄 360° View Enabled • Zoom Active</div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer Block -->
+    <footer>
+        <p>&copy; 2026 Yaray Hao & Max Song. Assessment Submission Portal.</p>
+    </footer>
+
+</body>
+</html>
